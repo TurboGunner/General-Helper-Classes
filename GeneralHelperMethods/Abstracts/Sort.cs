@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GeneralHelperMethods
+namespace GeneralHelperMethods.Abstracts
 {
-    public abstract class ISort<T> where T : IComparable<T>
+    public abstract class Sort<T> where T : IComparable<T>
     {
         public List<T> list { get; set; }
-        public ISort() {
+        public Sort() {
             list = new List<T>();
         }
 
-        public ISort(params T[] items)
+        public Sort(params T[] items)
         {
             foreach(T item in items)
             {

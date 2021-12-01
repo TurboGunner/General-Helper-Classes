@@ -1,9 +1,10 @@
-﻿using System;
+﻿using GeneralHelperMethods.Abstracts;
+using System;
 using System.Collections.Generic;
 
-namespace GeneralHelperMethods
+namespace GeneralHelperMethods.Sorts
 {
-    public class QuickSort<T> : ISort<T> where T : IComparable<T>
+    public class QuickSort<T> : Sort<T> where T : IComparable<T>
     {
         public enum PivotPoint {Left, MidPoint, Right}
         public override void SortList()
@@ -17,7 +18,7 @@ namespace GeneralHelperMethods
             list = RecursiveLogic(list);
         }
 
-        public List<T> RecursiveLogic(List<T> l, PivotPoint p = PivotPoint.MidPoint)
+        private List<T> RecursiveLogic(List<T> l, PivotPoint p = PivotPoint.MidPoint)
         {
             List<T> output = new List<T>();
             if (l.Count <= 1) //Base case for recursion
@@ -39,7 +40,7 @@ namespace GeneralHelperMethods
             return output;
         }
 
-        public int Pivot(List<T> l, PivotPoint p)
+        private int Pivot(List<T> l, PivotPoint p)
         {
             if (p == PivotPoint.MidPoint)
             {

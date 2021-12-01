@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GeneralHelperMethods.Searches;
+using GeneralHelperMethods.Sorts;
+using System;
 using System.Collections.Generic;
 
 namespace GeneralHelperMethods
@@ -11,6 +13,9 @@ namespace GeneralHelperMethods
         {
             MergeSortTest();
             QuickSortTest();
+            InsertionSortTest();
+            BinarySearchTest();
+
             Console.ReadLine();
         }
 
@@ -26,6 +31,19 @@ namespace GeneralHelperMethods
             QuickSort<int> sort = new QuickSort<int>();
             sort.SortList(list2);
             Console.WriteLine(sort.OutputList());
+        }
+
+        public static void InsertionSortTest()
+        {
+            InsertionSort<int> sort = new InsertionSort<int>();
+            sort.SortList(list2);
+            Console.WriteLine(sort.OutputList());
+        }
+
+        public static void BinarySearchTest()
+        {
+            BinarySearch<int> search = new BinarySearch<int>();
+            Console.WriteLine(search.SearchList(list2, 2));
         }
     }
 }

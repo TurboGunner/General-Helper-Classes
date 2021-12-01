@@ -1,9 +1,10 @@
-﻿using System;
+﻿using GeneralHelperMethods.Abstracts;
+using System;
 using System.Collections.Generic;
 
 namespace GeneralHelperMethods
 {
-    public class MergeSort<T> : ISort<T>  where T : IComparable<T>
+    public class MergeSort<T> : Sort<T>  where T : IComparable<T>
     {
         public override void SortList()
         {
@@ -15,7 +16,7 @@ namespace GeneralHelperMethods
             list = RecursiveSplitter(list);
         }
 
-        public List<T> RecursiveSplitter(List<T> l)
+        private List<T> RecursiveSplitter(List<T> l)
         {
             if (l.Count == 1)
             {
@@ -28,7 +29,7 @@ namespace GeneralHelperMethods
             return Merger(RecursiveSplitter(left), RecursiveSplitter(right));
         }
 
-        public List<T> Merger(List<T> list1, List<T> list2)
+        private List<T> Merger(List<T> list1, List<T> list2)
         {
             List<T> output = new List<T>();
 
